@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200" width="400" height="200">
+  <!-- Background -->
+  <rect width="400" height="200" fill="white" stroke="#000" stroke-width="2"/>
+  
+  <!-- "rafa" text -->
+  <text x="50" y="120" font-family="Arial, sans-serif" font-size="80" font-weight="normal" fill="#000000">
+    ra<tspan fill="#CC0000">f</tspan>a
+  </text>
+  
+  <!-- Red underline -->
+  <rect x="50" y="130" width="300" height="4" fill="#CC0000"/>
+  
+  <!-- "THERAPIES" text -->
+  <text x="50" y="170" font-family="Arial, sans-serif" font-size="28" font-weight="normal" letter-spacing="8" fill="#000000">
+    THERAPIES
+  </text>
+</svg>
