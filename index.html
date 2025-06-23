@@ -4,200 +4,386 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rafa Therapies, Inc. | Physical & Occupational Therapy in Detroit</title>
-    <script src="https://cdn.tailwindcss.com"></script>    <script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">    <script>
         tailwind.config = {
             theme: {
                 extend: {
+                    fontFamily: {
+                        'sans': ['Inter', 'sans-serif'],
+                    },
                     colors: {
-                        'navy-primary': '#1E40AF',
-                        'navy-dark': '#1E3A8A',
-                        'navy-darker': '#1E2563',
-                        'navy-light': '#3B82F6',
-                        'orange-primary': '#C2410C',
-                        'orange-warm': '#DC2626',
-                        'orange-light': '#EA580C',
-                        'orange-accent': '#F97316',
-                        'gray-primary': '#F8FAFC',
-                        'gray-light': '#F1F5F9',
-                        'gray-medium': '#475569',
-                        'gray-dark': '#1E293B',
-                        'pure-white': '#FFFFFF',
-                        'text-dark': '#0F172A',
-                        'text-medium': '#334155',
-                        'text-light': '#64748B',
+                        'primary': '#116DFF',
+                        'primary-dark': '#0056E6',
+                        'secondary': '#10B981',
+                        'accent': '#F59E0B',
+                        'text-primary': '#20303C',
+                        'text-secondary': '#7A7A7A',
+                        'bg-primary': '#FFFFFF',
+                        'bg-secondary': '#F9FAFA',
+                        'neutral': '#E5E7EB',
+                        'neutral-light': '#F3F4F6',
+                        'neutral-dark': '#374151',
                     }
                 }
             }
         }
-    </script>    <style>
-        .hero-gradient {
-            background: linear-gradient(135deg, #1E2563 0%, #C2410C 50%, #1E40AF 100%);
+    </script><style>
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
-        .card-gradient-1 {
-            background: linear-gradient(135deg, #1E40AF 0%, #1E2563 100%);
+        @keyframes slideUp {
+            from { transform: translateY(30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
         }
-        .card-gradient-2 {
-            background: linear-gradient(135deg, #C2410C 0%, #DC2626 100%);
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
         }
-        .card-gradient-3 {
-            background: linear-gradient(135deg, #1E40AF 0%, #475569 100%);
+        
+        .hero-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         }
-        .modern-glass {
-            backdrop-filter: blur(16px);
-            background: rgba(255, 255, 255, 0.95);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+        
+        .card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+        
+        .section-spacing {
+            padding: 80px 0;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%);
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3);
+        }
+        
+        .text-gradient {
+            background: linear-gradient(135deg, #2563EB 0%, #10B981 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
         .smooth-scroll {
             scroll-behavior: smooth;
         }
-        .gentle-shadow {
-            box-shadow: 0 0 20px rgba(30, 37, 99, 0.15);
-        }
-        .hover-lift {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .hover-lift:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
-        }
-        /* Enhanced hero contrast */
-        .hero-text-shadow {
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-        }
     </style>
 </head>
-<body class="font-sans antialiased smooth-scroll">    <!-- Sticky Header -->
-    <header class="sticky top-0 z-50 bg-white shadow-xl border-b-4 border-navy-primary">
-        <nav class="container mx-auto px-6 py-4">
-            <div class="flex items-center justify-between">
+<body class="font-sans antialiased smooth-scroll bg-bg-primary">
+    
+    <!-- Modern Header -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-bg-primary/95 backdrop-blur-md border-b border-neutral-light">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
                 <!-- Logo -->
-                <div class="flex items-center space-x-3">
-                    <img src="assets/images/logo.svg" alt="Rafa Therapies Logo" class="h-16 w-auto">
+                <div class="flex items-center">
+                    <img src="assets/images/logo.svg" alt="Rafa Therapies" class="h-10 w-auto">
+                    <span class="ml-2 text-xl font-bold text-text-primary">Rafa Therapies</span>
                 </div>
                 
-                <!-- Navigation Links -->
-                <div class="hidden md:flex space-x-8">
-                    <a href="#services" class="text-text-dark hover:text-navy-darker transition duration-300 font-medium">Services</a>
-                    <a href="#team" class="text-text-dark hover:text-navy-darker transition duration-300 font-medium">Team</a>
-                    <a href="#contact" class="text-text-dark hover:text-navy-darker transition duration-300 font-medium">Contact</a>
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#about" class="text-text-secondary hover:text-primary transition-colors duration-200">About</a>
+                    <a href="#services" class="text-text-secondary hover:text-primary transition-colors duration-200">Services</a>
+                    <a href="#team" class="text-text-secondary hover:text-primary transition-colors duration-200">Team</a>
+                    <a href="#contact" class="btn-primary text-white px-6 py-2 rounded-full hover:shadow-lg transition-all duration-200">Contact</a>
                 </div>
                 
                 <!-- Mobile Menu Button -->
-                <button class="md:hidden text-text-dark hover:text-navy-darker" onclick="toggleMobileMenu()">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <button class="md:hidden p-2" onclick="toggleMobileMenu()">
+                    <svg class="w-6 h-6 text-text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                     </svg>
                 </button>
             </div>
             
             <!-- Mobile Menu -->
-            <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4">
-                <a href="#services" class="block py-2 text-text-dark hover:text-navy-darker transition duration-300">Services</a>
-                <a href="#team" class="block py-2 text-text-dark hover:text-navy-darker transition duration-300">Team</a>
-                <a href="#contact" class="block py-2 text-text-dark hover:text-navy-darker transition duration-300">Contact</a>
+            <div id="mobile-menu" class="hidden md:hidden py-4 border-t border-neutral-light">
+                <div class="flex flex-col space-y-4">
+                    <a href="#about" class="text-text-secondary hover:text-primary transition-colors duration-200">About</a>
+                    <a href="#services" class="text-text-secondary hover:text-primary transition-colors duration-200">Services</a>
+                    <a href="#team" class="text-text-secondary hover:text-primary transition-colors duration-200">Team</a>
+                    <a href="#contact" class="text-text-secondary hover:text-primary transition-colors duration-200">Contact</a>
+                </div>
             </div>
         </nav>
-    </header>    <!-- Hero Section - Option 5: Modern Geometric -->
-    <section class="relative bg-white py-24 overflow-hidden">
-        <!-- Geometric Background -->
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary via-primary-dark to-accent">
+        <!-- Background Elements -->
         <div class="absolute inset-0">
-            <div class="absolute top-0 left-0 w-72 h-72 bg-navy-primary rounded-full opacity-10 -translate-x-1/2 -translate-y-1/2"></div>
-            <div class="absolute bottom-0 right-0 w-96 h-96 bg-orange-primary rounded-full opacity-10 translate-x-1/3 translate-y-1/3"></div>
-            <div class="absolute top-1/2 left-1/3 w-40 h-40 bg-navy-light rounded-full opacity-5"></div>
+            <div class="absolute top-20 left-10 w-72 h-72 bg-white/10 rounded-full blur-3xl animate-float"></div>
+            <div class="absolute bottom-20 right-10 w-96 h-96 bg-secondary/20 rounded-full blur-3xl animate-float" style="animation-delay: -1s;"></div>
         </div>
         
-        <div class="container mx-auto px-6 relative z-10">
-            <div class="max-w-4xl mx-auto text-center space-y-8">
-                <div class="inline-flex items-center bg-orange-primary text-white px-6 py-3 rounded-full text-sm font-semibold mb-6">
-                    <span class="w-2 h-2 bg-white rounded-full mr-3 animate-pulse"></span>
-                    Now Accepting New Patients
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="animate-fade-in">
+                <!-- Badge -->
+                <div class="inline-flex items-center bg-white/20 backdrop-blur-sm rounded-full px-6 py-2 mb-8">
+                    <span class="w-2 h-2 bg-accent rounded-full mr-3 animate-pulse"></span>
+                    <span class="text-white font-medium">Now Accepting New Patients</span>
                 </div>
                 
-                <h1 class="text-5xl lg:text-7xl font-bold text-text-dark leading-tight">
-                    Healing.<br>
-                    <span class="text-orange-primary">Recovery.</span><br>
-                    <span class="text-navy-primary">Excellence.</span>
+                <!-- Main Heading -->
+                <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
+                    Your Path to
+                    <span class="text-secondary">Complete</span>
+                    Recovery
                 </h1>
                 
-                <p class="text-xl text-text-medium max-w-2xl mx-auto leading-relaxed">
-                    Experience the difference that expert physical and occupational therapy can make in your recovery journey.
+                <!-- Subheading -->
+                <p class="text-xl md:text-2xl text-white/90 mb-8 max-w-3xl mx-auto leading-relaxed">
+                    Expert physical and occupational therapy services in Detroit, helping you move better and live optimally
                 </p>
-                  <!-- Benefit Pills -->
-                <div class="flex flex-wrap justify-center gap-4 py-8">
-                    <span class="bg-navy-primary text-white px-6 py-3 rounded-full text-sm font-medium">Expert Therapists</span>
-                    <span class="bg-orange-primary text-white px-6 py-3 rounded-full text-sm font-medium">Evidence-Based Care</span>
-                    <span class="bg-navy-light text-white px-6 py-3 rounded-full text-sm font-medium">Flexible Hours</span>
-                    <span class="bg-gray-medium text-white px-6 py-3 rounded-full text-sm font-medium">Insurance Accepted</span>
-                </div>
                 
-                <div class="flex flex-col sm:flex-row gap-6 justify-center">
-                    <a href="#contact" class="bg-navy-primary text-white px-10 py-5 rounded-2xl font-bold text-lg hover:bg-navy-darker transition duration-300 shadow-lg">
-                        Schedule Your Visit
+                <!-- CTA Buttons -->
+                <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+                    <a href="#contact" class="bg-white text-primary px-8 py-4 rounded-full font-semibold text-lg hover:bg-neutral-light hover:shadow-xl transition-all duration-300">
+                        Schedule Consultation
                     </a>
-                    <a href="tel:313-442-7875" class="border-2 border-orange-primary text-orange-primary px-10 py-5 rounded-2xl font-bold text-lg hover:bg-orange-primary hover:text-white transition duration-300">
+                    <a href="tel:313-442-7875" class="border-2 border-white text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-white hover:text-primary transition-all duration-300">
                         Call (313) 442-7875
                     </a>
                 </div>
+                
+                <!-- Stats -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-2xl mx-auto">
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-white mb-1">500+</div>
+                        <div class="text-white/80 text-sm">Patients Helped</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-white mb-1">15+</div>
+                        <div class="text-white/80 text-sm">Years Experience</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-white mb-1">95%</div>
+                        <div class="text-white/80 text-sm">Success Rate</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-white mb-1">24/7</div>
+                        <div class="text-white/80 text-sm">Support Available</div>
+                    </div>
+                </div>
             </div>
         </div>
-    </section><!-- Services Section -->
-    <section id="services" class="py-20 bg-gray-primary">
-        <div class="container mx-auto px-6">            <div class="text-center mb-16">
-                <h3 class="text-4xl font-bold text-text-dark mb-4">OUR PHYSICAL THERAPY SERVICES</h3>
-                <p class="text-xl text-text-medium max-w-2xl mx-auto mb-8">
-                    CAN RAFA THERAPIES HELP YOU? WE PROMISE THAT ANSWER IS A RESOUNDING YES!
-                </p>
-                <a href="#contact" class="bg-navy-primary text-pure-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-navy-darker transition duration-300 shadow-lg">
-                    Read About Our Care Approach
-                </a>
+        
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+            </svg>
+        </div>
+    </section><!-- About Section -->
+    <section id="about" class="section-spacing bg-bg-secondary">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <!-- Content -->
+                <div class="animate-slide-up">
+                    <div class="inline-block bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-semibold mb-6">
+                        About Rafa Therapies
+                    </div>
+                    <h2 class="text-4xl lg:text-5xl font-bold text-text-primary mb-6">
+                        Your Goals Are
+                        <span class="text-gradient">Our Priority</span>
+                    </h2>
+                    <p class="text-xl text-text-secondary mb-8 leading-relaxed">
+                        Rafa Therapies stands on the foundational idea of assisting people in moving better and continuing to live optimally. We pride ourselves on administering thorough, individualized care to help you meet and exceed your goals.
+                    </p>
+                    
+                    <!-- Features List -->
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-accent/20 rounded-full flex items-center justify-center mr-4">
+                                <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                            </div>
+                            <span class="text-lg text-text-primary font-medium">Evidence-Based Treatment Approaches</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-secondary/20 rounded-full flex items-center justify-center mr-4">
+                                <svg class="w-6 h-6 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z"></path>
+                                </svg>
+                            </div>
+                            <span class="text-lg text-text-primary font-medium">Personalized Care Plans</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mr-4">
+                                <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                                </svg>
+                            </div>
+                            <span class="text-lg text-text-primary font-medium">Cutting-Edge Technology</span>
+                        </div>
+                    </div>
+                    
+                    <a href="#contact" class="btn-primary text-white px-8 py-3 rounded-full font-semibold text-lg inline-flex items-center">
+                        Start Your Journey
+                        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                        </svg>
+                    </a>
+                </div>
+                
+                <!-- Image/Visual -->
+                <div class="relative animate-slide-up">
+                    <div class="aspect-square bg-gradient-to-br from-primary/20 to-accent/20 rounded-3xl flex items-center justify-center">
+                        <div class="text-center">
+                            <div class="w-32 h-32 bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center mb-6 mx-auto">
+                                <svg class="w-16 h-16 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-2xl font-bold text-text-primary mb-2">Compassionate Care</h3>
+                            <p class="text-text-secondary">Dedicated to your complete recovery</p>
+                        </div>
+                    </div>
+                    <!-- Floating elements -->
+                    <div class="absolute -top-4 -right-4 w-16 h-16 bg-secondary/30 rounded-full animate-float"></div>
+                    <div class="absolute -bottom-4 -left-4 w-12 h-12 bg-accent/30 rounded-full animate-float" style="animation-delay: -1s;"></div>
+                </div>
             </div>
-              <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-                <!-- Service Card 1 -->
-                <div class="bg-white rounded-2xl shadow-lg p-8 hover-lift border border-gray-100">
-                    <div class="w-16 h-16 card-gradient-1 rounded-2xl flex items-center justify-center mb-6 shadow-lg">
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section-spacing bg-bg-primary">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Section Header -->
+            <div class="text-center mb-16 animate-slide-up">
+                <div class="inline-block bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-semibold mb-6">
+                    Our Services
+                </div>
+                <h2 class="text-4xl lg:text-5xl font-bold text-text-primary mb-6">
+                    Comprehensive Therapy
+                    <span class="text-gradient">Solutions</span>
+                </h2>
+                <p class="text-xl text-text-secondary max-w-3xl mx-auto">
+                    We offer a full range of physical and occupational therapy services designed to help you recover, strengthen, and thrive.
+                </p>
+            </div>
+            
+            <!-- Services Grid -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="card-hover bg-bg-primary border border-neutral-light rounded-2xl p-8 text-center">
+                    <div class="w-16 h-16 bg-gradient-to-br from-primary to-primary-dark rounded-2xl flex items-center justify-center mx-auto mb-6">
                         <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h1a3 3 0 000-6h-1m0 6V4m0 6h6m-7 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                         </svg>
-                    </div>                    <h4 class="text-2xl font-semibold text-text-dark mb-4">Physical Therapy</h4>
-                    <p class="text-text-medium mb-6">
-                        Restore movement, reduce pain, and improve function through evidence-based physical therapy treatments. From injury recovery to performance enhancement.
-                    </p>                    <ul class="text-text-medium space-y-2">
-                        <li class="flex items-center"><span class="text-navy-primary mr-2">✓</span> Pain Management</li>
-                        <li class="flex items-center"><span class="text-navy-primary mr-2">✓</span> Injury Rehabilitation</li>
-                        <li class="flex items-center"><span class="text-navy-primary mr-2">✓</span> Movement Analysis</li>
+                    </div>
+                    <h3 class="text-2xl font-bold text-text-primary mb-4">Physical Therapy</h3>
+                    <p class="text-text-secondary mb-6 leading-relaxed">
+                        Restore movement, reduce pain, and improve function through evidence-based physical therapy treatments.
+                    </p>
+                    <ul class="text-left space-y-2 mb-6">
+                        <li class="flex items-center text-text-secondary">
+                            <svg class="w-4 h-4 text-accent mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Pain Management
+                        </li>
+                        <li class="flex items-center text-text-secondary">
+                            <svg class="w-4 h-4 text-accent mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Injury Rehabilitation
+                        </li>
+                        <li class="flex items-center text-text-secondary">
+                            <svg class="w-4 h-4 text-accent mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Movement Analysis
+                        </li>
                     </ul>
+                    <a href="#contact" class="text-primary font-semibold hover:text-primary-dark transition-colors duration-200">
+                        Learn More →
+                    </a>
                 </div>
                 
-                <!-- Service Card 2 -->
-                <div class="bg-white rounded-2xl shadow-lg p-8 hover-lift border border-gray-100">
-                    <div class="w-16 h-16 card-gradient-2 rounded-2xl flex items-center justify-center mb-6 shadow-lg">
+                <!-- Service 2 -->
+                <div class="card-hover bg-bg-primary border border-neutral-light rounded-2xl p-8 text-center">
+                    <div class="w-16 h-16 bg-gradient-to-br from-secondary to-yellow-500 rounded-2xl flex items-center justify-center mx-auto mb-6">
                         <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
                         </svg>
-                    </div>                    <h4 class="text-2xl font-semibold text-text-dark mb-4">Occupational Therapy</h4>
-                    <p class="text-text-medium mb-6">
-                        Enhance daily living skills and workplace functionality. Our OT specialists help you adapt and thrive in your environment.
+                    </div>
+                    <h3 class="text-2xl font-bold text-text-primary mb-4">Occupational Therapy</h3>
+                    <p class="text-text-secondary mb-6 leading-relaxed">
+                        Enhance daily living skills and workplace functionality with our specialized OT services.
                     </p>
-                    <ul class="text-text-medium space-y-2">                        <li class="flex items-center"><span class="text-orange-primary mr-2">✓</span> Daily Living Skills</li>
-                        <li class="flex items-center"><span class="text-orange-primary mr-2">✓</span> Workplace Ergonomics</li>
-                        <li class="flex items-center"><span class="text-orange-primary mr-2">✓</span> Adaptive Equipment</li>
+                    <ul class="text-left space-y-2 mb-6">
+                        <li class="flex items-center text-text-secondary">
+                            <svg class="w-4 h-4 text-accent mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Daily Living Skills
+                        </li>
+                        <li class="flex items-center text-text-secondary">
+                            <svg class="w-4 h-4 text-accent mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Workplace Ergonomics
+                        </li>
+                        <li class="flex items-center text-text-secondary">
+                            <svg class="w-4 h-4 text-accent mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Adaptive Equipment
+                        </li>
                     </ul>
+                    <a href="#contact" class="text-primary font-semibold hover:text-primary-dark transition-colors duration-200">
+                        Learn More →
+                    </a>
                 </div>
                 
-                <!-- Service Card 3 -->
-                <div class="bg-white rounded-2xl shadow-lg p-8 hover-lift border border-gray-100">
-                    <div class="w-16 h-16 card-gradient-3 rounded-2xl flex items-center justify-center mb-6 shadow-lg">
+                <!-- Service 3 -->
+                <div class="card-hover bg-bg-primary border border-neutral-light rounded-2xl p-8 text-center md:col-span-2 lg:col-span-1">
+                    <div class="w-16 h-16 bg-gradient-to-br from-accent to-green-500 rounded-2xl flex items-center justify-center mx-auto mb-6">
                         <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
                         </svg>
-                    </div>                    <h4 class="text-2xl font-semibold text-text-dark mb-4">Wellness & Prevention</h4>
-                    <p class="text-text-medium mb-6">
-                        Proactive care to prevent injuries and maintain optimal health. Customized wellness programs for long-term success.
+                    </div>
+                    <h3 class="text-2xl font-bold text-text-primary mb-4">Wellness & Prevention</h3>
+                    <p class="text-text-secondary mb-6 leading-relaxed">
+                        Proactive care to prevent injuries and maintain optimal health through comprehensive wellness programs.
                     </p>
-                    <ul class="text-text-medium space-y-2">                        <li class="flex items-center"><span class="text-navy-light mr-2">✓</span> Injury Prevention</li>
-                        <li class="flex items-center"><span class="text-navy-light mr-2">✓</span> Fitness Programs</li>
-                        <li class="flex items-center"><span class="text-navy-light mr-2">✓</span> Health Education</li>
+                    <ul class="text-left space-y-2 mb-6">
+                        <li class="flex items-center text-text-secondary">
+                            <svg class="w-4 h-4 text-accent mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Injury Prevention
+                        </li>
+                        <li class="flex items-center text-text-secondary">
+                            <svg class="w-4 h-4 text-accent mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Fitness Programs
+                        </li>
+                        <li class="flex items-center text-text-secondary">
+                            <svg class="w-4 h-4 text-accent mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Health Education
+                        </li>
                     </ul>
+                    <a href="#contact" class="text-primary font-semibold hover:text-primary-dark transition-colors duration-200">
+                        Learn More →
+                    </a>
                 </div>
             </div>
         </div>
@@ -244,257 +430,316 @@
             </div>
         </div>
     </section>    <!-- Team Section -->
-    <section id="team" class="py-20 bg-white">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h3 class="text-4xl font-bold text-text-dark mb-4">Meet Our Founders</h3>
-                <p class="text-xl text-text-medium max-w-2xl mx-auto">
-                    Expert practitioners dedicated to your health and recovery
+    <section id="team" class="section-spacing bg-bg-secondary">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Section Header -->
+            <div class="text-center mb-16 animate-slide-up">
+                <div class="inline-block bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-semibold mb-6">
+                    Meet Our Team
+                </div>
+                <h2 class="text-4xl lg:text-5xl font-bold text-text-primary mb-6">
+                    Expert Practitioners
+                    <span class="text-gradient">Dedicated to You</span>
+                </h2>
+                <p class="text-xl text-text-secondary max-w-3xl mx-auto">
+                    Our founders bring decades of combined experience in physical and occupational therapy, committed to your health and recovery journey.
                 </p>
             </div>
             
-            <div class="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">                <!-- Founder 1 -->
-                <div class="text-center hover-lift">
-                    <div class="relative mb-6">
-                        <div class="w-48 h-48 mx-auto bg-gradient-to-br from-navy-primary to-navy-light rounded-3xl flex items-center justify-center shadow-2xl">
+            <!-- Team Grid -->
+            <div class="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
+                <!-- Team Member 1 -->
+                <div class="text-center card-hover">
+                    <div class="relative mb-8">
+                        <div class="w-48 h-48 mx-auto bg-gradient-to-br from-primary to-primary-dark rounded-3xl flex items-center justify-center shadow-2xl">
                             <div class="w-44 h-44 bg-white rounded-3xl flex items-center justify-center">
-                                <svg class="w-24 h-24 text-text-light" fill="currentColor" viewBox="0 0 20 20">
+                                <svg class="w-24 h-24 text-neutral" fill="currentColor" viewBox="0 0 20 20">
                                     <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path>
                                 </svg>
                             </div>
                         </div>
-                    </div>                    <h4 class="text-2xl font-bold text-text-dark mb-2">Esther James, PT, DPT</h4>
-                    <p class="text-navy-primary font-semibold mb-4">Co-Founder & Physical Therapist</p>
-                    <p class="text-text-medium leading-relaxed">
+                        <!-- Floating Badge -->
+                        <div class="absolute -bottom-2 left-1/2 transform -translate-x-1/2 bg-white px-4 py-2 rounded-full shadow-lg border border-neutral-light">
+                            <span class="text-primary font-semibold text-sm">PT, DPT</span>
+                        </div>
+                    </div>
+                    <h3 class="text-2xl font-bold text-text-primary mb-2">Esther James</h3>
+                    <p class="text-primary font-semibold mb-4">Co-Founder & Physical Therapist</p>
+                    <p class="text-text-secondary leading-relaxed mb-6">
                         Doctor of Physical Therapy with extensive experience in rehabilitation and movement science. Passionate about helping patients achieve their mobility goals through evidence-based treatment approaches.
                     </p>
+                    <!-- Social Links -->
+                    <div class="flex justify-center space-x-4">
+                        <a href="#" class="w-10 h-10 bg-neutral-light rounded-full flex items-center justify-center hover:bg-primary hover:text-white transition-all duration-200">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.338 16.338H13.67V12.16c0-.995-.017-2.277-1.387-2.277-1.39 0-1.601 1.086-1.601 2.207v4.248H8.014v-8.59h2.559v1.174h.037c.356-.675 1.227-1.387 2.526-1.387 2.703 0 3.203 1.778 3.203 4.092v4.711zM5.005 6.575a1.548 1.548 0 11-.003-3.096 1.548 1.548 0 01.003 3.096zm-1.337 9.763H6.34v-8.59H3.667v8.59zM17.668 1H2.328C1.595 1 1 1.581 1 2.298v15.403C1 18.418 1.595 19 2.328 19h15.34c.734 0 1.332-.582 1.332-1.299V2.298C19 1.581 18.402 1 17.668 1z" clip-rule="evenodd"></path>
+                            </svg>
+                        </a>
+                        <a href="mailto:esther@rafatherapies.com" class="w-10 h-10 bg-neutral-light rounded-full flex items-center justify-center hover:bg-primary hover:text-white transition-all duration-200">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                            </svg>
+                        </a>
+                    </div>
                 </div>
                 
-                <!-- Founder 2 -->
-                <div class="text-center hover-lift">
-                    <div class="relative mb-6">
-                        <div class="w-48 h-48 mx-auto bg-gradient-to-br from-orange-primary to-orange-accent rounded-3xl flex items-center justify-center shadow-2xl">
+                <!-- Team Member 2 -->
+                <div class="text-center card-hover">
+                    <div class="relative mb-8">
+                        <div class="w-48 h-48 mx-auto bg-gradient-to-br from-secondary to-yellow-500 rounded-3xl flex items-center justify-center shadow-2xl">
                             <div class="w-44 h-44 bg-white rounded-3xl flex items-center justify-center">
-                                <svg class="w-24 h-24 text-text-light" fill="currentColor" viewBox="0 0 20 20">
+                                <svg class="w-24 h-24 text-neutral" fill="currentColor" viewBox="0 0 20 20">
                                     <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path>
                                 </svg>
                             </div>
                         </div>
+                        <!-- Floating Badge -->
+                        <div class="absolute -bottom-2 left-1/2 transform -translate-x-1/2 bg-white px-4 py-2 rounded-full shadow-lg border border-neutral-light">
+                            <span class="text-secondary font-semibold text-sm">PhD OTR/L</span>
+                        </div>
                     </div>
-                    <h4 class="text-2xl font-bold text-text-dark mb-2">Sam James, PhD OTR/L</h4>
-                    <p class="text-orange-primary font-semibold mb-4">Co-Founder & Occupational Therapist</p>
-                    <p class="text-text-medium leading-relaxed">
+                    <h3 class="text-2xl font-bold text-text-primary mb-2">Sam James</h3>
+                    <p class="text-secondary font-semibold mb-4">Co-Founder & Occupational Therapist</p>
+                    <p class="text-text-secondary leading-relaxed mb-6">
                         Licensed Occupational Therapist with a PhD specializing in adaptive strategies and daily living skills. Dedicated to empowering individuals to live independently and confidently.
                     </p>
-                </div>
-            </div>
-        </div>
-    </section>    <!-- Contact Section -->
-    <section id="contact" class="py-20 bg-gray-light">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h3 class="text-4xl font-bold text-text-dark mb-4">Contact Us</h3>
-                <p class="text-xl text-text-medium max-w-2xl mx-auto">
-                    Ready to start your recovery journey? Get in touch with our team today.
-                </p>
-            </div>
-            
-            <div class="max-w-4xl mx-auto">
-                <div class="bg-white rounded-2xl shadow-xl p-8 md:p-12">
-                    <div class="grid md:grid-cols-2 gap-12">
-                        <!-- Contact Information -->
-                        <div>                            <h4 class="text-2xl font-bold text-text-dark mb-6">Get In Touch</h4>
-                            
-                            <div class="space-y-6">
-                                <!-- Address -->
-                                <div class="flex items-start space-x-4">
-                                    <div class="w-12 h-12 bg-navy-primary rounded-full flex items-center justify-center flex-shrink-0">
-                                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                                        </svg>
-                                    </div>
-                                    <div>
-                                        <h5 class="font-semibold text-text-dark mb-1">Address</h5>
-                                        <p class="text-text-medium">4745 Michigan Ave<br>Detroit, MI 48210</p>
-                                    </div>
-                                </div>
-                                
-                                <!-- Phone -->
-                                <div class="flex items-start space-x-4">
-                                    <div class="w-12 h-12 bg-orange-primary rounded-full flex items-center justify-center flex-shrink-0">
-                                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
-                                        </svg>
-                                    </div>
-                                    <div>                                        <h5 class="font-semibold text-text-dark mb-1">Phone</h5>
-                                        <p class="text-text-medium"><a href="tel:313-442-7875" class="hover:text-orange-primary transition duration-300">313-442-7875</a></p>
-                                    </div>
-                                </div>
-                                
-                                <!-- Fax -->
-                                <div class="flex items-start space-x-4">
-                                    <div class="w-12 h-12 bg-navy-light rounded-full flex items-center justify-center flex-shrink-0">
-                                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 4V2a1 1 0 011-1h8a1 1 0 011 1v2m-9 0h10m-9 0a2 2 0 00-2 2v14a2 2 0 002 2h8a2 2 0 002-2V6a2 2 0 00-2-2"></path>
-                                        </svg>
-                                    </div>
-                                    <div>
-                                        <h5 class="font-semibold text-text-dark mb-1">Fax</h5>
-                                        <p class="text-text-medium">313-442-7910</p>
-                                    </div>
-                                </div>
-                                
-                                <!-- Email -->
-                                <div class="flex items-start space-x-4">
-                                    <div class="w-12 h-12 bg-gray-medium rounded-full flex items-center justify-center flex-shrink-0">
-                                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-                                        </svg>
-                                    </div>
-                                    <div>
-                                        <h5 class="font-semibold text-text-dark mb-1">Email</h5>
-                                        <p class="text-text-medium"><a href="mailto:rafatherapies@gmail.com" class="hover:text-orange-primary transition duration-300">rafatherapies@gmail.com</a></p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>                          <!-- Contact Form -->
-                        <div>
-                            <h4 class="text-2xl font-bold text-text-dark mb-6">Schedule a Consultation</h4>
-                            
-                            <form class="space-y-4">                                <div>
-                                    <label for="name" class="block text-text-dark font-medium mb-2">Full Name</label>
-                                    <input type="text" id="name" name="name" class="w-full px-4 py-3 border border-gray-medium rounded-lg focus:outline-none focus:ring-2 focus:ring-navy-primary focus:border-navy-primary" required>
-                                </div>
-                                
-                                <div>
-                                    <label for="email" class="block text-text-dark font-medium mb-2">Email Address</label>
-                                    <input type="email" id="email" name="email" class="w-full px-4 py-3 border border-gray-medium rounded-lg focus:outline-none focus:ring-2 focus:ring-navy-primary focus:border-navy-primary" required>
-                                </div>
-                                
-                                <div>
-                                    <label for="phone" class="block text-text-dark font-medium mb-2">Phone Number</label>
-                                    <input type="tel" id="phone" name="phone" class="w-full px-4 py-3 border border-gray-medium rounded-lg focus:outline-none focus:ring-2 focus:ring-navy-primary focus:border-navy-primary">
-                                </div>
-                                
-                                <div>
-                                    <label for="service" class="block text-text-dark font-medium mb-2">Service Needed</label>
-                                    <select id="service" name="service" class="w-full px-4 py-3 border border-gray-medium rounded-lg focus:outline-none focus:ring-2 focus:ring-navy-primary focus:border-navy-primary">
-                                        <option value="">Select a service</option>
-                                        <option value="physical-therapy">Physical Therapy</option>
-                                        <option value="occupational-therapy">Occupational Therapy</option>
-                                        <option value="wellness">Wellness & Prevention</option>
-                                        <option value="consultation">General Consultation</option>
-                                    </select>
-                                </div>
-                                
-                                <div>
-                                    <label for="message" class="block text-text-dark font-medium mb-2">Message</label>
-                                    <textarea id="message" name="message" rows="4" class="w-full px-4 py-3 border border-gray-medium rounded-lg focus:outline-none focus:ring-2 focus:ring-navy-primary focus:border-navy-primary" placeholder="Tell us about your needs or questions..."></textarea>
-                                </div>
-                                  <button type="submit" class="w-full bg-gradient-to-r from-navy-primary to-orange-primary text-white py-3 px-6 rounded-lg font-semibold hover:from-navy-darker hover:to-orange-warm transition duration-300 shadow-lg">
-                                    Send Message
-                                </button>
-                            </form>
-                        </div>
+                    <!-- Social Links -->
+                    <div class="flex justify-center space-x-4">
+                        <a href="#" class="w-10 h-10 bg-neutral-light rounded-full flex items-center justify-center hover:bg-secondary hover:text-white transition-all duration-200">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.338 16.338H13.67V12.16c0-.995-.017-2.277-1.387-2.277-1.39 0-1.601 1.086-1.601 2.207v4.248H8.014v-8.59h2.559v1.174h.037c.356-.675 1.227-1.387 2.526-1.387 2.703 0 3.203 1.778 3.203 4.092v4.711zM5.005 6.575a1.548 1.548 0 11-.003-3.096 1.548 1.548 0 01.003 3.096zm-1.337 9.763H6.34v-8.59H3.667v8.59zM17.668 1H2.328C1.595 1 1 1.581 1 2.298v15.403C1 18.418 1.595 19 2.328 19h15.34c.734 0 1.332-.582 1.332-1.299V2.298C19 1.581 18.402 1 17.668 1z" clip-rule="evenodd"></path>
+                            </svg>
+                        </a>
+                        <a href="mailto:sam@rafatherapies.com" class="w-10 h-10 bg-neutral-light rounded-full flex items-center justify-center hover:bg-secondary hover:text-white transition-all duration-200">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                            </svg>
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
-    </section>    <!-- FAQ Section -->
-    <section class="py-20 bg-white">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h3 class="text-4xl font-bold text-text-dark mb-4">Frequently Asked Questions</h3>
-                <p class="text-xl text-text-medium max-w-2xl mx-auto">
-                    Get answers to common questions about physical and occupational therapy
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section-spacing bg-bg-primary">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Section Header -->
+            <div class="text-center mb-16 animate-slide-up">
+                <div class="inline-block bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-semibold mb-6">
+                    Get In Touch
+                </div>
+                <h2 class="text-4xl lg:text-5xl font-bold text-text-primary mb-6">
+                    Ready to Start Your
+                    <span class="text-gradient">Recovery Journey?</span>
+                </h2>
+                <p class="text-xl text-text-secondary max-w-3xl mx-auto">
+                    Contact us today to schedule your consultation and take the first step towards optimal health and wellness.
                 </p>
             </div>
             
-            <div class="max-w-4xl mx-auto">
-                <div class="space-y-6">
-                    <!-- FAQ Item 1 -->
-                    <div class="bg-gray-primary rounded-2xl p-6 hover:bg-orange-light hover:bg-opacity-10 transition duration-300">
-                        <div class="flex items-start space-x-4">
-                            <div class="w-8 h-8 bg-gradient-to-r from-navy-primary to-orange-primary rounded-full flex items-center justify-center flex-shrink-0">
-                                <span class="text-white font-bold text-sm">Q</span>
+            <div class="grid lg:grid-cols-2 gap-12">
+                <!-- Contact Information -->
+                <div class="space-y-8">
+                    <div class="card-hover bg-bg-secondary rounded-2xl p-8">
+                        <h3 class="text-2xl font-bold text-text-primary mb-6">Contact Information</h3>
+                        
+                        <div class="space-y-6">
+                            <!-- Address -->
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                    <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-text-primary mb-1">Address</h4>
+                                    <p class="text-text-secondary">4745 Michigan Ave<br>Detroit, MI 48210</p>
+                                </div>
                             </div>
-                            <div class="flex-1">
-                                <h4 class="text-xl font-semibold text-text-dark mb-3">What conditions do you treat?</h4>
-                                <p class="text-text-medium leading-relaxed">
-                                    We treat a wide range of conditions including back pain, neck pain, sports injuries, post-surgical rehabilitation, arthritis, balance disorders, and workplace injuries. Our team specializes in both acute and chronic conditions.
-                                </p>
+                            
+                            <!-- Phone -->
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 bg-secondary/20 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                    <svg class="w-6 h-6 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-text-primary mb-1">Phone</h4>
+                                    <p class="text-text-secondary">
+                                        <a href="tel:313-442-7875" class="hover:text-primary transition-colors duration-200">313-442-7875</a>
+                                    </p>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                      <!-- FAQ Item 2 -->
-                    <div class="bg-gray-primary rounded-2xl p-6 hover:bg-orange-accent hover:bg-opacity-10 transition duration-300">
-                        <div class="flex items-start space-x-4">
-                            <div class="w-8 h-8 bg-gradient-to-r from-orange-primary to-navy-light rounded-full flex items-center justify-center flex-shrink-0">
-                                <span class="text-white font-bold text-sm">Q</span>
+                            
+                            <!-- Email -->
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 bg-accent/20 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                    <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-text-primary mb-1">Email</h4>
+                                    <p class="text-text-secondary">
+                                        <a href="mailto:rafatherapies@gmail.com" class="hover:text-primary transition-colors duration-200">rafatherapies@gmail.com</a>
+                                    </p>
+                                </div>
                             </div>
-                            <div class="flex-1">
-                                <h4 class="text-xl font-semibold text-text-dark mb-3">How long does physical therapy take?</h4>
-                                <p class="text-text-medium leading-relaxed">
-                                    Treatment duration varies based on your condition, goals, and response to therapy. Most patients see improvement within 2-4 weeks, with complete recovery typically taking 6-12 weeks. We'll discuss your specific timeline during your initial evaluation.
-                                </p>
+                            
+                            <!-- Fax -->
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 bg-neutral/20 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                    <svg class="w-6 h-6 text-neutral" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 4V2a1 1 0 011-1h8a1 1 0 011 1v2m-9 0h10m-9 0a2 2 0 00-2 2v14a2 2 0 002 2h8a2 2 0 002-2V6a2 2 0 00-2-2"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-text-primary mb-1">Fax</h4>
+                                    <p class="text-text-secondary">313-442-7910</p>
+                                </div>
                             </div>
                         </div>
                     </div>
                     
-                    <!-- FAQ Item 3 -->
-                    <div class="bg-gray-primary rounded-2xl p-6 hover:bg-orange-accent hover:bg-opacity-10 transition duration-300">
-                        <div class="flex items-start space-x-4">
-                            <div class="w-8 h-8 bg-gradient-to-r from-navy-light to-orange-accent rounded-full flex items-center justify-center flex-shrink-0">
-                                <span class="text-white font-bold text-sm">Q</span>
+                    <!-- Hours -->
+                    <div class="card-hover bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl p-8">
+                        <h3 class="text-2xl font-bold text-text-primary mb-6">Office Hours</h3>
+                        <div class="space-y-3">
+                            <div class="flex justify-between">
+                                <span class="text-text-secondary">Monday - Friday</span>
+                                <span class="text-text-primary font-semibold">8:00 AM - 6:00 PM</span>
                             </div>
-                            <div class="flex-1">
-                                <h4 class="text-xl font-semibold text-text-dark mb-3">Do I need a referral from my doctor?</h4>
-                                <p class="text-text-medium leading-relaxed">
-                                    In Michigan, you can receive physical therapy services without a physician referral for up to 10 days or visits, whichever comes first. However, we recommend consulting with your healthcare provider and checking with your insurance for coverage requirements.
-                                </p>
+                            <div class="flex justify-between">
+                                <span class="text-text-secondary">Saturday</span>
+                                <span class="text-text-primary font-semibold">9:00 AM - 3:00 PM</span>
                             </div>
-                        </div>
-                    </div>
-                    
-                    <!-- FAQ Item 4 -->
-                    <div class="bg-gray-primary rounded-2xl p-6 hover:bg-orange-accent hover:bg-opacity-10 transition duration-300">
-                        <div class="flex items-start space-x-4">
-                            <div class="w-8 h-8 bg-gradient-to-r from-orange-accent to-navy-darker rounded-full flex items-center justify-center flex-shrink-0">
-                                <span class="text-white font-bold text-sm">Q</span>
-                            </div>
-                            <div class="flex-1">
-                                <h4 class="text-xl font-semibold text-text-dark mb-3">What should I expect during my first visit?</h4>
-                                <p class="text-text-medium leading-relaxed">
-                                    Your first visit includes a comprehensive evaluation where we'll discuss your medical history, assess your movement and strength, and develop a personalized treatment plan. We'll also explain your condition and set realistic goals together.
-                                </p>
+                            <div class="flex justify-between">
+                                <span class="text-text-secondary">Sunday</span>
+                                <span class="text-text-primary font-semibold">Closed</span>
                             </div>
                         </div>
                     </div>
                 </div>
                 
-                <div class="text-center mt-12">
-                    <a href="#contact" class="bg-gradient-to-r from-navy-primary to-orange-primary text-white px-8 py-4 rounded-full font-semibold text-lg hover:from-navy-darker hover:to-orange-warm transition duration-300 shadow-lg">
-                        Have More Questions? Contact Us
-                    </a>
+                <!-- Contact Form -->
+                <div class="card-hover bg-bg-secondary rounded-2xl p-8">
+                    <h3 class="text-2xl font-bold text-text-primary mb-6">Schedule a Consultation</h3>
+                    
+                    <form class="space-y-6">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="firstName" class="block text-text-primary font-medium mb-2">First Name</label>
+                                <input type="text" id="firstName" name="firstName" class="w-full px-4 py-3 border border-neutral-light rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition-colors duration-200" required>
+                            </div>
+                            <div>
+                                <label for="lastName" class="block text-text-primary font-medium mb-2">Last Name</label>
+                                <input type="text" id="lastName" name="lastName" class="w-full px-4 py-3 border border-neutral-light rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition-colors duration-200" required>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label for="email" class="block text-text-primary font-medium mb-2">Email Address</label>
+                            <input type="email" id="email" name="email" class="w-full px-4 py-3 border border-neutral-light rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition-colors duration-200" required>
+                        </div>
+                        
+                        <div>
+                            <label for="phone" class="block text-text-primary font-medium mb-2">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" class="w-full px-4 py-3 border border-neutral-light rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition-colors duration-200">
+                        </div>
+                        
+                        <div>
+                            <label for="service" class="block text-text-primary font-medium mb-2">Service Needed</label>
+                            <select id="service" name="service" class="w-full px-4 py-3 border border-neutral-light rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition-colors duration-200">
+                                <option value="">Select a service</option>
+                                <option value="physical-therapy">Physical Therapy</option>
+                                <option value="occupational-therapy">Occupational Therapy</option>
+                                <option value="wellness">Wellness & Prevention</option>
+                                <option value="consultation">General Consultation</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label for="message" class="block text-text-primary font-medium mb-2">Message</label>
+                            <textarea id="message" name="message" rows="4" class="w-full px-4 py-3 border border-neutral-light rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition-colors duration-200" placeholder="Tell us about your needs or questions..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="w-full btn-primary text-white py-3 px-6 rounded-lg font-semibold text-lg">
+                            Send Message
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>
     </section>    <!-- Footer -->
-    <footer class="bg-navy-darker text-white py-12">
-        <div class="container mx-auto px-6">
-            <div class="text-center">                <div class="flex items-center justify-center space-x-2 mb-4">
-                    <img src="assets/images/logo.svg" alt="Rafa Therapies Logo" class="h-12 w-auto">
-                    <h4 class="text-xl font-bold">Inc.</h4>
+    <footer class="bg-neutral-dark text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8 mb-12">
+                <!-- Brand -->
+                <div class="md:col-span-2">
+                    <div class="flex items-center mb-6">
+                        <img src="assets/images/logo.svg" alt="Rafa Therapies" class="h-12 w-auto mr-3">
+                        <div>
+                            <h3 class="text-2xl font-bold">Rafa Therapies</h3>
+                            <p class="text-neutral-400 text-sm">Inc.</p>
+                        </div>
+                    </div>
+                    <p class="text-neutral-400 mb-6 max-w-md">
+                        Leading physical and occupational therapy services in Detroit, dedicated to helping you move better and live optimally.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-neutral-light rounded-full flex items-center justify-center hover:bg-primary transition-colors duration-200">
+                            <svg class="w-5 h-5 text-neutral-dark" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M20 10c0-5.523-4.477-10-10-10S0 4.477 0 10c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V10h2.54V7.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V10h2.773l-.443 2.89h-2.33v6.988C16.343 19.128 20 14.991 20 10z" clip-rule="evenodd"></path>
+                            </svg>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-neutral-light rounded-full flex items-center justify-center hover:bg-primary transition-colors duration-200">
+                            <svg class="w-5 h-5 text-neutral-dark" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.338 16.338H13.67V12.16c0-.995-.017-2.277-1.387-2.277-1.39 0-1.601 1.086-1.601 2.207v4.248H8.014v-8.59h2.559v1.174h.037c.356-.675 1.227-1.387 2.526-1.387 2.703 0 3.203 1.778 3.203 4.092v4.711zM5.005 6.575a1.548 1.548 0 11-.003-3.096 1.548 1.548 0 01.003 3.096zm-1.337 9.763H6.34v-8.59H3.667v8.59zM17.668 1H2.328C1.595 1 1 1.581 1 2.298v15.403C1 18.418 1.595 19 2.328 19h15.34c.734 0 1.332-.582 1.332-1.299V2.298C19 1.581 18.402 1 17.668 1z" clip-rule="evenodd"></path>
+                            </svg>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-neutral-light rounded-full flex items-center justify-center hover:bg-primary transition-colors duration-200">
+                            <svg class="w-5 h-5 text-neutral-dark" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" clip-rule="evenodd"></path>
+                            </svg>
+                        </a>
+                    </div>
                 </div>
-                <p class="text-gray-light mb-6">Physical & Occupational Therapy Services in Detroit</p>
-                <div class="flex justify-center space-x-6 mb-6">
-                    <a href="#services" class="text-gray-light hover:text-orange-accent transition duration-300">Services</a>
-                    <a href="#team" class="text-gray-light hover:text-orange-accent transition duration-300">Team</a>
-                    <a href="#contact" class="text-gray-light hover:text-orange-accent transition duration-300">Contact</a>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-6">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#about" class="text-neutral-400 hover:text-white transition-colors duration-200">About Us</a></li>
+                        <li><a href="#services" class="text-neutral-400 hover:text-white transition-colors duration-200">Services</a></li>
+                        <li><a href="#team" class="text-neutral-400 hover:text-white transition-colors duration-200">Our Team</a></li>
+                        <li><a href="#contact" class="text-neutral-400 hover:text-white transition-colors duration-200">Contact</a></li>
+                    </ul>
                 </div>
-                <div class="border-t border-gray-medium pt-6">
-                    <p class="text-gray-light">&copy; <span id="current-year"></span> Rafa Therapies, Inc. All rights reserved.</p>
+                
+                <!-- Services -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-6">Services</h4>
+                    <ul class="space-y-3">
+                        <li><span class="text-neutral-400">Physical Therapy</span></li>
+                        <li><span class="text-neutral-400">Occupational Therapy</span></li>
+                        <li><span class="text-neutral-400">Wellness Programs</span></li>
+                        <li><span class="text-neutral-400">Injury Prevention</span></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Bottom Bar -->
+            <div class="border-t border-neutral-light pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-neutral-400 text-sm mb-4 md:mb-0">
+                    &copy; <span id="current-year"></span> Rafa Therapies, Inc. All rights reserved.
+                </p>
+                <div class="flex space-x-6 text-sm">
+                    <a href="#" class="text-neutral-400 hover:text-white transition-colors duration-200">Privacy Policy</a>
+                    <a href="#" class="text-neutral-400 hover:text-white transition-colors duration-200">Terms of Service</a>
+                    <a href="#" class="text-neutral-400 hover:text-white transition-colors duration-200">Accessibility</a>
                 </div>
             </div>
         </div>
@@ -521,16 +766,43 @@
                         block: 'start'
                     });
                     // Close mobile menu if open
-                    document.getElementById('mobile-menu').classList.add('hidden');
+                    const mobileMenu = document.getElementById('mobile-menu');
+                    if (mobileMenu) {
+                        mobileMenu.classList.add('hidden');
+                    }
                 }
             });
         });
         
-        // Form submission (you can customize this)
+        // Form submission
         document.querySelector('form').addEventListener('submit', function(e) {
             e.preventDefault();
             alert('Thank you for your message! We will contact you soon.');
             this.reset();
-        });    </script>
+        });
+        
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all elements with animation classes
+        document.querySelectorAll('.animate-slide-up, .animate-fade-in').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+            observer.observe(el);
+        });
+    </script>
 </body>
 </html>
